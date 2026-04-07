@@ -16,7 +16,7 @@ EXAMPLE = """example:
   unwrap.py -i filt_fine.int -c filt_fine.cor -o filt_fine.unw
 
   # commands to run phase unwrapping with a custom mask
-  prep_isce.py -d ./merged/interferograms -f filt_fine.int -m ./reference/IW1.xml -b ./baselines/ -g ./merged/geom_reference/
+  prep_isce.py -f ./merged/interferograms/*/filt_fine.int -m ./reference/IW1.xml -b ./baselines/ -g ./merged/geom_reference/
   generate_mask.py ../../geom_reference/los.rdr inc -m 1 --base ../../geom_reference/waterMask.rdr -o waterMask.h5
   generate_mask.py filt_fine.cor -m 0.4 --vroipoly --base waterMask.h5 -o maskUnw.h5 
   # may use "generate_mask.py maskUnw.h5 -m 0.5 --mp 400 -o mask1.h5" to remove small isolated clusters.
